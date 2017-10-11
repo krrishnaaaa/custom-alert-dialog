@@ -24,19 +24,19 @@ public class MainActivity extends AppCompatActivity {
         LayoutInflater inflater = getLayoutInflater();
         View alertLayout = inflater.inflate(R.layout.layout_custom_dialog, null);
         final EditText etUsername = alertLayout.findViewById(R.id.et_username);
-        final EditText etPassword = alertLayout.findViewById(R.id.et_email);
-        final CheckBox cbShowPassword = alertLayout.findViewById(R.id.cb_show_pass);
+        final EditText etEmail = alertLayout.findViewById(R.id.et_email);
+        final CheckBox cbToggle = alertLayout.findViewById(R.id.cb_show_pass);
 
-        cbShowPassword.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        cbToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     // to encode password in dots
-                    etPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    etEmail.setTransformationMethod(PasswordTransformationMethod.getInstance());
                 } else {
                     // to display the password in normal text
-                    etPassword.setTransformationMethod(null);
+                    etEmail.setTransformationMethod(null);
                 }
             }
         });
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String user = etUsername.getText().toString();
-                String pass = etPassword.getText().toString();
+                String pass = etEmail.getText().toString();
                 Toast.makeText(getBaseContext(), "Username: " + user + " Email: " + pass, Toast.LENGTH_SHORT).show();
             }
         });
