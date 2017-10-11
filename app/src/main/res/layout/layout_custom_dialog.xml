@@ -36,23 +36,23 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight=".3"
-            android:text="Password:" />
+            android:text="Email:" />
 
         <EditText
-            android:id="@+id/et_password"
+            android:id="@+id/et_email"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight=".7"
             android:imeOptions="actionDone"
-            android:inputType="textPassword"
+            android:inputType="textEmailAddress"
             android:singleLine="true" />
     </LinearLayout>
 
     <CheckBox
-        android:id="@+id/cb_show_password"
+        android:id="@+id/cb_show_pass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Show Password" />
+        android:text="Toggle Password/Text View" />
 
 </LinearLayout>
