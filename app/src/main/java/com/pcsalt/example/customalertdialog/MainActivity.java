@@ -1,6 +1,5 @@
 package com.pcsalt.example.customalertdialog;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,25 +30,14 @@ public class MainActivity extends AppCompatActivity {
         alert.setView(alertLayout);
         // disallow cancel of AlertDialog on click of back button and outside touch
         alert.setCancelable(false);
-        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        alert.setNegativeButton("Cancel", (dialog, which) -> Toast.makeText(getBaseContext(), "Cancel clicked", Toast.LENGTH_SHORT).show());
 
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(getBaseContext(), "Cancel clicked", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        alert.setPositiveButton("Done", new DialogInterface.OnClickListener() {
-
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                String user = etUsername.getText().toString();
-                String pass = etPassword.getText().toString();
-                Toast.makeText(getBaseContext(), "Username: " + user + " Password: " + pass, Toast.LENGTH_SHORT).show();
-            }
+        alert.setPositiveButton("Done", (dialog, which) -> {
+            String user = etUsername.getText().toString();
+            String pass = etPassword.getText().toString();
+            Toast.makeText(getBaseContext(), "Username: " + user + " Password: " + pass, Toast.LENGTH_LONG).show();
         });
         AlertDialog dialog = alert.create();
         dialog.show();
     }
 }
-
